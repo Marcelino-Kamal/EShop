@@ -10,19 +10,19 @@
 <body>
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
+            <div class="container-fluid">
             <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
+                        <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
+                        </li>
+                        <li class="nav-item">
                         <a class="nav-link" href="#">Shop</a>
-                    </li>
+                        </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Account
@@ -30,16 +30,16 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/Auth/Register">SignUp</a></li>
                             <li><a class="dropdown-item" href="#">Login</a></li>
-                        </ul>
+                    </ul>
                     </li>
                 </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
    
     <div>
-        @RenderBody()
+            @RenderBody()
     </div>
 
 
@@ -57,7 +57,7 @@
                         molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae aliquam
                         voluptatem veniam, est atque cumque eum delectus sint!
                     </p>
-                </div>
+    </div>
                 <!--Grid column-->
                 <!--Grid column-->
                 <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
@@ -81,5 +81,7 @@
     </footer>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
