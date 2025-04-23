@@ -1,12 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CookiesShop.Data;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CookiesShop.Controllers
 {
     public class ProductController : Controller
     {
-        public IActionResult Index()
+        private readonly ApplicationDbContext _context;
+
+        public ProductController(ApplicationDbContext context)
         {
-            return View();
+            _context = context;
         }
+
     }
 }
