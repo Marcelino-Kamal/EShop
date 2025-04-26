@@ -41,8 +41,11 @@ namespace CookiesShop.Controllers
         public async Task<IActionResult> Login(String email , String password)
         {
             var user = await _context.Users.Include(u => u.Role).FirstOrDefaultAsync(u => u.Email == email);
-            if (user != null && UserService.IsAuthenticated(user,user.Password, password)) { }
-            return RedirectToAction("Index", "Home");
+            if (user != null && UserService.IsAuthenticated(user,user.Password, password)) {
+
+                return RedirectToAction("AdminDashBoard", "Home");
+            }
+            return RedirectToAction("AdminDashBoard", "Home");
         }
 
        
