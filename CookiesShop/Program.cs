@@ -7,7 +7,17 @@ Env.Load();
 var builder = WebApplication.CreateBuilder(args);
 
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowCookie",
+        policy => policy
+        .WithOrigins("http://localhost:5173")
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+        );
 
+
+});
 
 
 var connectionString = Env.GetString("DB_CONNECTION");
@@ -21,6 +31,7 @@ builder.Services.AddControllersWithViews();
 
 
 
+builder.Services.AddHttpClient();
 
 
 
@@ -33,6 +44,8 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+app.UseCors("AllowCookie");
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
