@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+
 namespace CookiesShop.Models
 {
     [ModelBinder(BinderType = typeof(UserBinder))]
@@ -30,7 +31,8 @@ namespace CookiesShop.Models
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-        public ICollection<Orders> Orders { get; set; }
+        [Required(AllowEmptyStrings = true)]
+        public ICollection<Orders> Orders { get; set; } = new List<Orders>();
 
         public int points { get; set; } = 0;
 

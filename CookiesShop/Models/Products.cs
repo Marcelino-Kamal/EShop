@@ -14,6 +14,7 @@ namespace CookiesShop.Models
         public string name { get; set; }
 
         public string description { get; set; }
+        public string imgUrl {  get; set; }
 
         [Required]
         [Precision(18, 2)]
