@@ -15,7 +15,7 @@ namespace CookiesShop.Models
         public int Quantity { get; set; }
 
         [Required]
-        public int ProductId { get; set; }
+        public Guid ProductId { get; set; }
 
         [ForeignKey("ProductId")]
         public Products Product { get; set; }

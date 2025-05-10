@@ -10,7 +10,7 @@ namespace CookiesShop.Models
     public class Users
     {
         [Key]
-        public int id { get; set; }
+        public Guid id { get; set; } = Guid.NewGuid();
 
         [Required(ErrorMessage ="UserName is required")]
         [MaxLength(255)]
@@ -27,7 +27,7 @@ namespace CookiesShop.Models
         public int RoleID { get; set; }
 
         [ForeignKey("RoleID")]
-        public Role Role { get; set; }
+        public Role? Role { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
