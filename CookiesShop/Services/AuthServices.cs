@@ -3,13 +3,14 @@ using Microsoft.AspNetCore.Identity;
 
 namespace CookiesShop.Services
 {
-    public static class UserService
+    public static class AuthServices
     {
-
        
-        public static bool IsAuthenticated(Users u,string hashedPassword, string enteredPassword) {
+       
+        public static bool IsAuthenticated(Users u, string enteredPassword) {
 
-            return new PasswordHasher<Users>().HashPassword(u,enteredPassword) == hashedPassword;
+            var res= new PasswordHasher<Users>().VerifyHashedPassword(u,u.Password,enteredPassword);
+            return res == PasswordVerificationResult.Success;
         }
         public static string HashMyPass(Users u) { 
             
